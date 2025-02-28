@@ -60,6 +60,7 @@ get_ce_from_ipsa <- function(df){
 load('cycloheximide/df_all2_a.rda')
 df <- df_all2 %>% 
   dplyr::rename(a_chx = TOTAL_COUNT_chm, a_ctrl = TOTAL_COUNT_ctrl)
+t <- get_ce_from_ipsa(df)
 View(df)
 save(t, file='t_H_CHX.rda')
 write.table(t, 'chx_cassette_exons_human.csv', sep=' ', 
