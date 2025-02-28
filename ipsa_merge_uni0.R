@@ -85,7 +85,7 @@ colnames_j <- c('junction_id',	'total_count',
 
 # meta$files[1]
 # # [1] "CHX_WT_16_trimmed_sorted_merged"
-j4or6 = 'J4'
+j4or6 = 'J6'
 make_junction_table <- function(meta, path, j4or6){
   
   if (j4or6=='J4') {
@@ -137,8 +137,8 @@ make_junction_table <- function(meta, path, j4or6){
   return(junctions)
 }
 
-junctions <- make_junction_table(meta, 'J4')
-junctions <- make_junction_table(meta, 'J6')
+# junctions <- make_junction_table(meta, path, 'J4')
+junctions <- make_junction_table(meta, path, 'J6')
 
 View(junctions)
 # save(junctions, file='junctions_MOUSE_SRSF2_KD_FULL_J4.rda')
