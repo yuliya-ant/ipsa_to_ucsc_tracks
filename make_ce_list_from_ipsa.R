@@ -1,10 +1,10 @@
 library(dplyr)
-# library(ggplot2)
-# library(tidyr)
-# library(stringr)
-# library(GenomicRanges)
-# library(ggrepel)
-# library(tibble)
+
+
+# 
+# --- get there with chosen genes only ---
+# 
+
 
 setwd("~/Data/Lab2/")
 
@@ -67,23 +67,23 @@ write.table(t, 'chx_cassette_exons_human.csv', sep=' ',
             row.names=FALSE, quote= FALSE) 
 
 
-clk <- read.table('clk_coordinates_plus_20k.bed')
-clk[1, 'V2']
-load('cycloheximide/df4_mouse_FULL.rda')
+# clk <- read.table('clk_coordinates_plus_20k.bed')
+# clk[1, 'V2']
+# load('cycloheximide/df4_mouse_FULL.rda')
 
-df <- df4_mouse %>% arrange(chrom, start, end) %>% 
-  mutate(start = as.integer(start), 
-         end = as.integer(end)) %>%
-  filter((chrom == clk[1, 'V1'] & start > clk[1, 'V2'] & end < clk[1, 'V3']) |
-           (chrom == clk[2, 'V1'] & start > clk[2, 'V2'] & end < clk[2, 'V3']) |
-           (chrom == clk[3, 'V1'] & start > clk[3, 'V2'] & end < clk[3, 'V3']) |
-           (chrom == clk[4, 'V1'] & start > clk[4, 'V2'] & end < clk[4, 'V3']))
-View(df)
-rm(df4_mouse)
-t <- get_ce_from_ipsa(df)
-save(t, file='t_M_CHX.rda')
-write.table(t, 'chx_cassette_exons_mouse.csv', sep=' ', 
-            row.names=FALSE, quote= FALSE) 
+# df <- df4_mouse %>% arrange(chrom, start, end) %>% 
+#   mutate(start = as.integer(start), 
+#          end = as.integer(end)) %>%
+#   filter((chrom == clk[1, 'V1'] & start > clk[1, 'V2'] & end < clk[1, 'V3']) |
+#            (chrom == clk[2, 'V1'] & start > clk[2, 'V2'] & end < clk[2, 'V3']) |
+#            (chrom == clk[3, 'V1'] & start > clk[3, 'V2'] & end < clk[3, 'V3']) |
+#            (chrom == clk[4, 'V1'] & start > clk[4, 'V2'] & end < clk[4, 'V3']))
+# View(df)
+# rm(df4_mouse)
+# t <- get_ce_from_ipsa(df)
+# save(t, file='t_M_CHX.rda')
+# write.table(t, 'chx_cassette_exons_mouse.csv', sep=' ', 
+#             row.names=FALSE, quote= FALSE) 
 Sys.time()
 View(df)
 
